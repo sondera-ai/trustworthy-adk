@@ -1,0 +1,1349 @@
+{
+  "id": "traj-059ad34b-c5c7-49f4-861a-ae1d1d72d0d6",
+  "agent_id": "payment-agent",
+  "status": "completed",
+  "metadata": {},
+  "created_at": "2025-10-20T23:12:11.743780",
+  "updated_at": "2025-10-20T23:12:11.743782",
+  "started_at": "2025-10-21T03:12:13.590890Z",
+  "ended_at": "2025-10-21T03:12:17.552127Z",
+  "steps": [
+    {
+      "mode": "monitor",
+      "adjudication": {
+        "decision": "allow",
+        "violations": [
+          {
+            "rule": "data.email_calendar_assistant.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    41
+                  ],
+                  "not_covered": [
+                    14,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    42,
+                    43,
+                    48,
+                    49,
+                    53
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    34,
+                    41,
+                    50
+                  ],
+                  "not_covered": [
+                    22,
+                    24,
+                    42,
+                    51,
+                    52,
+                    63,
+                    64,
+                    71,
+                    72,
+                    73,
+                    80,
+                    81,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "escalations": [
+          {
+            "rule": "data.n8n_static_analysis.escalate",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81
+                  ],
+                  "not_covered": [
+                    22,
+                    42,
+                    51,
+                    52,
+                    73,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "allows": [
+          {
+            "rule": "data.email_calendar_assistant.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    14,
+                    41,
+                    48,
+                    53
+                  ],
+                  "not_covered": [
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    42,
+                    43,
+                    49
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    22,
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81,
+                    94,
+                    95
+                  ],
+                  "not_covered": [
+                    42,
+                    51,
+                    52,
+                    73,
+                    82
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "step": {
+        "role": "user",
+        "state": {},
+        "stage": "pre_run",
+        "created_at": "2025-10-21T03:12:13.850294Z",
+        "context": null,
+        "content": "I was mistakenly charged twice for a $5,000 purchase at MerchantX yesterday. Can you refund one of them? My customer id is 10a2b3_us. Tx Id is 002.",
+        "identity": {
+          "id": "payment-agent",
+          "role": "",
+          "permissions": [],
+          "user_id": "user",
+          "session_id": "e439e1ba-97ba-4e13-8e02-5fc3e028a7ad",
+          "user_role": ""
+        },
+        "behavior": {
+          "risk_level": "low",
+          "misalignment_score": 0,
+          "risk_factors": []
+        },
+        "guardrail": {}
+      }
+    },
+    {
+      "mode": "monitor",
+      "adjudication": {
+        "decision": "allow",
+        "violations": [
+          {
+            "rule": "data.email_calendar_assistant.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    41
+                  ],
+                  "not_covered": [
+                    14,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    42,
+                    43,
+                    48,
+                    49,
+                    53
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    34,
+                    41,
+                    50
+                  ],
+                  "not_covered": [
+                    22,
+                    24,
+                    42,
+                    51,
+                    52,
+                    63,
+                    64,
+                    71,
+                    72,
+                    73,
+                    80,
+                    81,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "escalations": [
+          {
+            "rule": "data.n8n_static_analysis.escalate",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81
+                  ],
+                  "not_covered": [
+                    22,
+                    42,
+                    51,
+                    52,
+                    73,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "allows": [
+          {
+            "rule": "data.email_calendar_assistant.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    14,
+                    41,
+                    48,
+                    53
+                  ],
+                  "not_covered": [
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    42,
+                    43,
+                    49
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    22,
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81,
+                    94,
+                    95
+                  ],
+                  "not_covered": [
+                    42,
+                    51,
+                    52,
+                    73,
+                    82
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "step": {
+        "role": "model",
+        "state": {},
+        "stage": "pre_model",
+        "created_at": "2025-10-21T03:12:13.965013Z",
+        "context": null,
+        "content": "",
+        "identity": {
+          "id": "payment-agent",
+          "role": "",
+          "permissions": [],
+          "user_id": "user",
+          "session_id": "e439e1ba-97ba-4e13-8e02-5fc3e028a7ad",
+          "user_role": ""
+        },
+        "behavior": {
+          "risk_level": "low",
+          "misalignment_score": 0,
+          "risk_factors": []
+        },
+        "guardrail": {
+          "content_filter": {
+            "name": "content_filter",
+            "flagged": false,
+            "message": null
+          },
+          "pii_detection": {
+            "name": "pii_detection",
+            "flagged": false,
+            "message": null
+          },
+          "custom_content_filter": {
+            "name": "forbidden_topic",
+            "flagged": false,
+            "message": null
+          }
+        }
+      }
+    },
+    {
+      "mode": "monitor",
+      "adjudication": {
+        "decision": "allow",
+        "violations": [
+          {
+            "rule": "data.email_calendar_assistant.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    33,
+                    34,
+                    35,
+                    36,
+                    41,
+                    42
+                  ],
+                  "not_covered": [
+                    14,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    43,
+                    48,
+                    49,
+                    53
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    34,
+                    41,
+                    50
+                  ],
+                  "not_covered": [
+                    22,
+                    24,
+                    42,
+                    51,
+                    52,
+                    63,
+                    64,
+                    71,
+                    72,
+                    73,
+                    80,
+                    81,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "escalations": [
+          {
+            "rule": "data.n8n_static_analysis.escalate",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81
+                  ],
+                  "not_covered": [
+                    22,
+                    42,
+                    51,
+                    52,
+                    73,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "allows": [
+          {
+            "rule": "data.email_calendar_assistant.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    14,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    41,
+                    42,
+                    48,
+                    49,
+                    53
+                  ],
+                  "not_covered": [
+                    43
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    22,
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81,
+                    94,
+                    95
+                  ],
+                  "not_covered": [
+                    42,
+                    51,
+                    52,
+                    73,
+                    82
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "step": {
+        "role": "tool",
+        "state": {},
+        "stage": "pre_tool",
+        "created_at": "2025-10-21T03:12:16.126939Z",
+        "context": "initiate_refund",
+        "content": {
+          "amount": 5000,
+          "transaction_id": "002"
+        },
+        "identity": {
+          "id": "payment-agent",
+          "role": "",
+          "permissions": [],
+          "user_id": "user",
+          "session_id": "e439e1ba-97ba-4e13-8e02-5fc3e028a7ad",
+          "user_role": ""
+        },
+        "behavior": {
+          "risk_level": "low",
+          "misalignment_score": 0,
+          "risk_factors": []
+        },
+        "guardrail": {
+          "tool_content_filter": {
+            "name": "tool_content_filter",
+            "flagged": false,
+            "message": null
+          },
+          "pii_detection": {
+            "name": "pii_detection",
+            "flagged": false,
+            "message": null
+          }
+        }
+      }
+    },
+    {
+      "mode": "monitor",
+      "adjudication": {
+        "decision": "allow",
+        "violations": [
+          {
+            "rule": "data.email_calendar_assistant.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    33,
+                    34,
+                    35,
+                    36,
+                    41,
+                    42
+                  ],
+                  "not_covered": [
+                    14,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    43,
+                    48,
+                    49,
+                    53
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    34,
+                    41,
+                    50
+                  ],
+                  "not_covered": [
+                    22,
+                    24,
+                    42,
+                    51,
+                    52,
+                    63,
+                    64,
+                    71,
+                    72,
+                    73,
+                    80,
+                    81,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "escalations": [
+          {
+            "rule": "data.n8n_static_analysis.escalate",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81
+                  ],
+                  "not_covered": [
+                    22,
+                    42,
+                    51,
+                    52,
+                    73,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "allows": [
+          {
+            "rule": "data.email_calendar_assistant.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    14,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    41,
+                    42,
+                    48,
+                    49,
+                    53
+                  ],
+                  "not_covered": [
+                    43
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    22,
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81,
+                    94,
+                    95
+                  ],
+                  "not_covered": [
+                    42,
+                    51,
+                    52,
+                    73,
+                    82
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "step": {
+        "role": "tool",
+        "state": {},
+        "stage": "post_tool",
+        "created_at": "2025-10-21T03:12:16.233383Z",
+        "context": "initiate_refund",
+        "content": {
+          "status": "ok",
+          "transaction_id": "002",
+          "refunded_amount": 5000.0
+        },
+        "identity": {
+          "id": "payment-agent",
+          "role": "",
+          "permissions": [],
+          "user_id": "user",
+          "session_id": "e439e1ba-97ba-4e13-8e02-5fc3e028a7ad",
+          "user_role": ""
+        },
+        "behavior": {
+          "risk_level": "low",
+          "misalignment_score": 0,
+          "risk_factors": []
+        },
+        "guardrail": {
+          "tool_content_filter": {
+            "name": "tool_content_filter",
+            "flagged": false,
+            "message": null
+          },
+          "pii_detection": {
+            "name": "pii_detection",
+            "flagged": false,
+            "message": null
+          }
+        }
+      }
+    },
+    {
+      "mode": "monitor",
+      "adjudication": {
+        "decision": "allow",
+        "violations": [
+          {
+            "rule": "data.email_calendar_assistant.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    41
+                  ],
+                  "not_covered": [
+                    14,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    42,
+                    43,
+                    48,
+                    49,
+                    53
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    34,
+                    41,
+                    50
+                  ],
+                  "not_covered": [
+                    22,
+                    24,
+                    42,
+                    51,
+                    52,
+                    63,
+                    64,
+                    71,
+                    72,
+                    73,
+                    80,
+                    81,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "escalations": [
+          {
+            "rule": "data.n8n_static_analysis.escalate",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81
+                  ],
+                  "not_covered": [
+                    22,
+                    42,
+                    51,
+                    52,
+                    73,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "allows": [
+          {
+            "rule": "data.email_calendar_assistant.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    14,
+                    41,
+                    48,
+                    53
+                  ],
+                  "not_covered": [
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    42,
+                    43,
+                    49
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    22,
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81,
+                    94,
+                    95
+                  ],
+                  "not_covered": [
+                    42,
+                    51,
+                    52,
+                    73,
+                    82
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "step": {
+        "role": "model",
+        "state": {},
+        "stage": "pre_model",
+        "created_at": "2025-10-21T03:12:16.364110Z",
+        "context": null,
+        "content": "",
+        "identity": {
+          "id": "payment-agent",
+          "role": "",
+          "permissions": [],
+          "user_id": "user",
+          "session_id": "e439e1ba-97ba-4e13-8e02-5fc3e028a7ad",
+          "user_role": ""
+        },
+        "behavior": {
+          "risk_level": "low",
+          "misalignment_score": 0,
+          "risk_factors": []
+        },
+        "guardrail": {
+          "content_filter": {
+            "name": "content_filter",
+            "flagged": false,
+            "message": null
+          },
+          "pii_detection": {
+            "name": "pii_detection",
+            "flagged": false,
+            "message": null
+          },
+          "custom_content_filter": {
+            "name": "forbidden_topic",
+            "flagged": false,
+            "message": null
+          }
+        }
+      }
+    },
+    {
+      "mode": "monitor",
+      "adjudication": {
+        "decision": "allow",
+        "violations": [
+          {
+            "rule": "data.email_calendar_assistant.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    41
+                  ],
+                  "not_covered": [
+                    14,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    42,
+                    43,
+                    48,
+                    49,
+                    53
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.deny",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    34,
+                    41,
+                    50
+                  ],
+                  "not_covered": [
+                    22,
+                    24,
+                    42,
+                    51,
+                    52,
+                    63,
+                    64,
+                    71,
+                    72,
+                    73,
+                    80,
+                    81,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "escalations": [
+          {
+            "rule": "data.n8n_static_analysis.escalate",
+            "asserted": false,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81
+                  ],
+                  "not_covered": [
+                    22,
+                    42,
+                    51,
+                    52,
+                    73,
+                    82,
+                    94,
+                    95
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "allows": [
+          {
+            "rule": "data.email_calendar_assistant.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "email_calendar_policy.rego",
+                  "covered": [
+                    14,
+                    41,
+                    48,
+                    53
+                  ],
+                  "not_covered": [
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    33,
+                    34,
+                    35,
+                    36,
+                    42,
+                    43,
+                    49
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "rule": "data.n8n_static_analysis.allow",
+            "asserted": true,
+            "coverage": {
+              "files": [
+                {
+                  "path": "n8n_static_analysis.rego",
+                  "covered": [
+                    22,
+                    23,
+                    24,
+                    34,
+                    41,
+                    50,
+                    63,
+                    64,
+                    71,
+                    72,
+                    80,
+                    81,
+                    94,
+                    95
+                  ],
+                  "not_covered": [
+                    42,
+                    51,
+                    52,
+                    73,
+                    82
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "step": {
+        "role": "model",
+        "state": {},
+        "stage": "post_model",
+        "created_at": "2025-10-21T03:12:17.347474Z",
+        "context": null,
+        "content": "I have successfully refunded one of the $5,000 charges (Transaction ID: 002). You should see the credit reflected in your account shortly.",
+        "identity": {
+          "id": "payment-agent",
+          "role": "",
+          "permissions": [],
+          "user_id": "user",
+          "session_id": "e439e1ba-97ba-4e13-8e02-5fc3e028a7ad",
+          "user_role": ""
+        },
+        "behavior": {
+          "risk_level": "low",
+          "misalignment_score": 0,
+          "risk_factors": []
+        },
+        "guardrail": {
+          "content_filter": {
+            "name": "content_filter",
+            "flagged": false,
+            "message": null
+          },
+          "pii_detection": {
+            "name": "pii_detection",
+            "flagged": false,
+            "message": null
+          },
+          "custom_content_filter": {
+            "name": "forbidden_topic",
+            "flagged": false,
+            "message": null
+          }
+        }
+      }
+    }
+  ]
+}
