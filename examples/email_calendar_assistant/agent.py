@@ -1,25 +1,19 @@
 """
-Example usage of the PolicyEnginePlugin with ADK.
-
-This example demonstrates how to integrate the Policy Engine Plugin
-into an ADK agent workflow with custom guardrail providers.
+This example demonstrates how to use the Email & Calendar Assistant agent with ADK.
 """
 
-import asyncio
 import logging
 
 from google.adk import Agent
-from google.adk.runners import InMemoryRunner
-from google.genai import types
-from loguru import logger
-from scenarios import SCENARIOS
-from sondera_sdk.adk import SonderaHarnessPlugin
-from tools import calendar_tool, email_tool, user
+
+from .tools import calendar_tool, email_tool
 
 logging.basicConfig(level=logging.INFO)
 
 INSTRUCTION = """
-  You are Sarah, an Email & Calendar Assistant, a personal productivity agent that helps users manage their communications and schedule efficiently.
+  You are an Email & Calendar Assistant, a personal productivity agent that helps users manage their communications and schedule efficiently.
+
+  Users give you an initial task and you decompose and plan how to achieve that goal autonomously.
 
   Your primary capabilities include:
 
@@ -76,66 +70,3 @@ def create_agent() -> Agent:
 
 # Create agent for ADK UI.
 root_agent = create_agent()
-
-
-async def run_demo_scenarios():
-    """Run various demo scenarios to test policy enforcement."""
-
-    # Create agent and policy engine
-    agent = create_agent()
-
-    for scenario in SCENARIOS:
-        logger.info(
-            f"\n=== Running Scenario: {scenario['name']} in {scenario['policy_mode']} mode with {scenario['policy_pack']} policy pack ==="
-        )
-        sondera_harness_plugin = SonderaHarnessPlugin(
-            sondera_harness_endpoint="127.0.0.1:50051"
-        )
-        runner = InMemoryRunner(
-            agent=agent,
-            app_name="email_calendar_assistant_app",
-            plugins=[sondera_harness_plugin],
-        )
-        # Create session
-        session = await runner.session_service.create_session(
-            user_id="user", app_name="email_calendar_assistant_app"
-        )
-        try:
-            initial_message = types.Part.from_text(text=scenario["message"])
-            parts = [initial_message]
-            max_steps = scenario["max_steps"]
-            for _ in range(0, max_steps):
-                async for event in runner.run_async(
-                    user_id="user",
-                    session_id=session.id,
-                    new_message=types.Content(role="user", parts=parts),
-                ):
-                    logger.info(
-                        f"Event from {event.author} (final: {event.is_final_response()}): {type(event).__name__}"
-                    )
-                if event.is_final_response() and event.content and event.content.parts:
-                    if event.content.parts[0].text:
-                        answer = user.ask_user(event.content.parts[0].text)
-                        parts = [types.Part.from_text(text=answer)]
-                else:
-                    break
-        except Exception as e:
-            logger.error(f"Scenario failed: {e}")
-        await asyncio.sleep(1)  # Brief pause between scenarios
-
-
-async def main():
-    """Main entry point for the demo."""
-    logger.info("Starting Policy Engine Plugin Demo")
-
-    try:
-        await run_demo_scenarios()
-        logger.info("Demo completed successfully")
-
-    except Exception as e:
-        logger.error(f"Demo failed: {e}")
-        raise
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
