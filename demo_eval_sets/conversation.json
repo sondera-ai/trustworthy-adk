@@ -1,0 +1,179 @@
+{
+  "eval_set_id": "demo_conversation",
+  "name": "Demo Conversation Evaluation",
+  "description": "Demonstration of basic conversation evaluation",
+  "eval_cases": [
+    {
+      "eval_id": "demo_conversation_case_0",
+      "conversation": [
+        {
+          "invocation_id": "3aca51cc-0ddf-4b24-acf2-ee44d05f4d38",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, how are you?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello! I'm doing well, thank you for asking. How can I help you today?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": null,
+          "creation_timestamp": 1764768010.6583767,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": {
+        "app_name": "test_agent",
+        "user_id": "test_user",
+        "state": {}
+      },
+      "creation_timestamp": 1764768010.6583927,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "demo_conversation_case_1",
+      "conversation": [
+        {
+          "invocation_id": "8b10726a-cfbc-4bbd-bde6-1ea0fd5d42bc",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "What can you help me with?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I can help you with a variety of tasks including answering questions, providing information, and assisting with problem-solving. What would you like help with?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": null,
+          "creation_timestamp": 1764768010.658433,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": {
+        "app_name": "test_agent",
+        "user_id": "test_user",
+        "state": {}
+      },
+      "creation_timestamp": 1764768010.6584396,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "demo_conversation_case_2",
+      "conversation": [
+        {
+          "invocation_id": "f4d0d84d-d0ae-43fc-83ee-f9f85c0c3f49",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Can you explain quantum computing?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Quantum computing is a type of computation that uses quantum mechanical phenomena like superposition and entanglement to process information. Unlike classical computers that use bits (0 or 1), quantum computers use quantum bits or 'qubits' that can exist in multiple states simultaneously.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": null,
+          "creation_timestamp": 1764768010.6584706,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": {
+        "app_name": "test_agent",
+        "user_id": "test_user",
+        "state": {}
+      },
+      "creation_timestamp": 1764768010.658475,
+      "rubrics": null,
+      "final_session_state": {}
+    }
+  ],
+  "creation_timestamp": 1764768010.6584783
+}

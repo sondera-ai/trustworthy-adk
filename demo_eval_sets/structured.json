@@ -1,0 +1,152 @@
+{
+  "eval_set_id": "demo_structured",
+  "name": "Demo Structured Evaluation",
+  "description": "Demonstration of structured evaluation",
+  "eval_cases": [
+    {
+      "eval_id": "demo_booking_0",
+      "conversation": [
+        {
+          "invocation_id": "cc8b0eac-923c-4d38-863d-94fd74ec2ec8",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I need to book a hotel in Paris for next week.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'd be happy to help you book a hotel in Paris! To find the best options, could you tell me your preferred dates, budget range, and any specific amenities you need?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": null,
+          "creation_timestamp": 1764768010.6589687,
+          "rubrics": null,
+          "app_details": null
+        },
+        {
+          "invocation_id": "3a427aef-74d0-4acd-85aa-1a5635127f97",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I need it from March 15-18, budget around €150-200 per night, and I need WiFi and breakfast.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Perfect! Let me search for hotels in Paris for March 15-18 within your budget that include WiFi and breakfast.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": null,
+                "args": {
+                  "location": "Paris, France",
+                  "check_in": "2024-03-15",
+                  "check_out": "2024-03-18",
+                  "min_price": 150,
+                  "max_price": 200,
+                  "amenities": [
+                    "wifi",
+                    "breakfast"
+                  ]
+                },
+                "name": "search_hotels",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [
+              {
+                "will_continue": null,
+                "scheduling": null,
+                "parts": null,
+                "id": null,
+                "name": "search_hotels",
+                "response": {
+                  "status": "success",
+                  "message": "Mock response for search_hotels"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1764768010.6590166,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": {
+        "app_name": "test_agent",
+        "user_id": "test_user",
+        "state": {
+          "scenario_context": {
+            "domain": "travel",
+            "complexity": "moderate",
+            "required_capabilities": [
+              "conversation",
+              "tool_use",
+              "travel_booking"
+            ]
+          }
+        }
+      },
+      "creation_timestamp": 1764768010.6590242,
+      "rubrics": null,
+      "final_session_state": {}
+    }
+  ],
+  "creation_timestamp": 1764768010.6590273
+}
