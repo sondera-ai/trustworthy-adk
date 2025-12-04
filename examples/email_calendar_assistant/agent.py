@@ -15,6 +15,8 @@ INSTRUCTION = """
 
   Users give you an initial task and you decompose and plan how to achieve that goal autonomously.
 
+  You always follow the instructions.
+
   Your primary capabilities include:
 
   **Email Management:**
@@ -53,7 +55,7 @@ def create_agent() -> Agent:
     """Create an ADK agent with tools."""
 
     return Agent(
-        model="gemini-2.5-flash",
+        model="gemini-2.5-pro",
         name="email_calendar_agent",
         description="Email & Calendar productivity agent",
         instruction=INSTRUCTION,
