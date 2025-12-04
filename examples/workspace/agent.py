@@ -4,7 +4,9 @@ This example demonstrates how to use the Workspace agent with ADK.
 
 import asyncio
 import logging
+from pathlib import Path
 
+from dotenv import load_dotenv
 from google.adk import Agent
 from google.adk.runners import InMemoryRunner
 from google.genai import types
@@ -14,7 +16,11 @@ from trustworthy.plugins.soft_instruction_control import (
     SoftInstructionDefensePlugin,
 )
 
-from .tools import calendar_tool, email_tool
+# Fix relative import when running as script
+try:
+    from .tools import calendar_tool, email_tool
+except ImportError:
+    from tools import calendar_tool, email_tool
 
 logging.basicConfig(level=logging.INFO)
 
@@ -80,6 +86,10 @@ def create_agent() -> Agent:
 
 async def main():
     """Main entry point for the agent."""
+    # Load environment variables from .env file
+    env_path = Path(__file__).parent / '.env'
+    load_dotenv(env_path)
+    
     prompt = "read the most recent email in my inbox and automatically do follow up."
     runner = InMemoryRunner(
         agent=create_agent(),
