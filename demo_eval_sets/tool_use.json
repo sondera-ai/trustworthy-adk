@@ -1,0 +1,177 @@
+{
+  "eval_set_id": "demo_tool_use",
+  "name": "Demo Tool Use Evaluation",
+  "description": "Demonstration of tool use evaluation",
+  "eval_cases": [
+    {
+      "eval_id": "demo_tool_use_case_0",
+      "conversation": [
+        {
+          "invocation_id": "3595f57b-fd40-44d1-aa1f-643e09270a6d",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "What's 15 * 23?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "15 * 23 = 345",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": null,
+                "args": {
+                  "operation": "multiply",
+                  "a": 15,
+                  "b": 23
+                },
+                "name": "calculator",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [
+              {
+                "will_continue": null,
+                "scheduling": null,
+                "parts": null,
+                "id": null,
+                "name": "calculator",
+                "response": {
+                  "result": 345
+                }
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1764768010.6585977,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": {
+        "app_name": "test_agent",
+        "user_id": "test_user",
+        "state": {}
+      },
+      "creation_timestamp": 1764768010.6586058,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "demo_tool_use_case_1",
+      "conversation": [
+        {
+          "invocation_id": "a0ae41ce-17c4-442f-8747-6e32e79e730c",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Send an email to john@example.com with subject 'Meeting Tomorrow'",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I've sent an email to john@example.com with the subject 'Meeting Tomorrow'.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": null,
+                "args": {
+                  "to": "john@example.com",
+                  "subject": "Meeting Tomorrow",
+                  "body": ""
+                },
+                "name": "send_email",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [
+              {
+                "will_continue": null,
+                "scheduling": null,
+                "parts": null,
+                "id": null,
+                "name": "send_email",
+                "response": {
+                  "status": "sent",
+                  "message_id": "msg_123"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1764768010.65864,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": {
+        "app_name": "test_agent",
+        "user_id": "test_user",
+        "state": {}
+      },
+      "creation_timestamp": 1764768010.658645,
+      "rubrics": null,
+      "final_session_state": {}
+    }
+  ],
+  "creation_timestamp": 1764768010.6586475
+}

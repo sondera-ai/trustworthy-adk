@@ -1,0 +1,336 @@
+{
+  "eval_set_id": "structured_test",
+  "name": "Structured Scenario Evaluation",
+  "description": "Test agent with structured, multi-turn scenarios",
+  "eval_cases": [
+    {
+      "eval_id": "customer_support_basic_0",
+      "conversation": [
+        {
+          "invocation_id": "9275e5bb-2b4a-49f0-b548-4f7749e5409e",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hi, I'm looking for information about your premium subscription plan.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'd be happy to help you with information about our premium subscription plan! Our premium plan includes advanced features, priority support, and unlimited usage. Would you like me to provide specific details about pricing or features?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": null,
+          "creation_timestamp": 1764767954.6917179,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": {
+        "app_name": "test_agent",
+        "user_id": "test_user",
+        "state": {
+          "scenario_context": {
+            "domain": "customer_service",
+            "complexity": "simple",
+            "required_capabilities": [
+              "conversation",
+              "customer_service"
+            ]
+          }
+        }
+      },
+      "creation_timestamp": 1764767954.691726,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "data_analysis_moderate_1",
+      "conversation": [
+        {
+          "invocation_id": "8b63b2e2-6677-47ce-aeec-19b4628761d1",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Can you analyze the sales data from last quarter and tell me the top performing products?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'll analyze the sales data from last quarter to identify the top performing products for you.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": null,
+                "args": {
+                  "query": "SELECT product_name, SUM(sales_amount) as total_sales FROM sales WHERE quarter = 'Q3_2024' GROUP BY product_name ORDER BY total_sales DESC LIMIT 10"
+                },
+                "name": "query_database",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [
+              {
+                "will_continue": null,
+                "scheduling": null,
+                "parts": null,
+                "id": null,
+                "name": "query_database",
+                "response": {
+                  "results": [
+                    {
+                      "product_name": "Premium Widget",
+                      "total_sales": 125000
+                    },
+                    {
+                      "product_name": "Standard Widget",
+                      "total_sales": 98000
+                    },
+                    {
+                      "product_name": "Deluxe Widget",
+                      "total_sales": 87500
+                    }
+                  ],
+                  "row_count": 3
+                }
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1764767954.6917682,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": {
+        "app_name": "test_agent",
+        "user_id": "test_user",
+        "state": {
+          "scenario_context": {
+            "domain": "data_analysis",
+            "complexity": "moderate",
+            "required_capabilities": [
+              "data_analysis",
+              "tool_use",
+              "sql"
+            ]
+          }
+        }
+      },
+      "creation_timestamp": 1764767954.691774,
+      "rubrics": null,
+      "final_session_state": {}
+    },
+    {
+      "eval_id": "multi_step_planning_2",
+      "conversation": [
+        {
+          "invocation_id": "0ef95fe9-1137-49bf-a902-b76ddd5b68f0",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I need to plan a product launch for our new mobile app. Can you help me create a comprehensive timeline?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "I'd be happy to help you create a comprehensive timeline for your mobile app launch. Let me break this down into key phases and create a detailed plan.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": null,
+                "args": {
+                  "project_type": "mobile_app_launch",
+                  "duration_weeks": 12
+                },
+                "name": "create_project_template",
+                "partial_args": null,
+                "will_continue": null
+              }
+            ],
+            "tool_responses": [
+              {
+                "will_continue": null,
+                "scheduling": null,
+                "parts": null,
+                "id": null,
+                "name": "create_project_template",
+                "response": {
+                  "template_id": "proj_69ac739b",
+                  "phases": [
+                    {
+                      "name": "Planning",
+                      "duration_weeks": 2
+                    },
+                    {
+                      "name": "Development",
+                      "duration_weeks": 6
+                    },
+                    {
+                      "name": "Testing",
+                      "duration_weeks": 2
+                    },
+                    {
+                      "name": "Launch",
+                      "duration_weeks": 2
+                    }
+                  ],
+                  "total_duration": 12
+                }
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1764767954.6918142,
+          "rubrics": null,
+          "app_details": null
+        },
+        {
+          "invocation_id": "de47a0b0-9ede-46f3-a7f6-3388c0683de7",
+          "user_content": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "What are the key milestones I should track?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Based on the project plan, here are the key milestones you should track: 1) Development completion, 2) Beta testing phase, 3) Marketing campaign launch, 4) App store submission, 5) Official launch date. Each milestone has specific deliverables and success criteria.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": null,
+          "creation_timestamp": 1764767954.6918368,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "conversation_scenario": null,
+      "session_input": {
+        "app_name": "test_agent",
+        "user_id": "test_user",
+        "state": {
+          "scenario_context": {
+            "domain": "project_management",
+            "complexity": "complex",
+            "required_capabilities": [
+              "project_management",
+              "planning",
+              "tool_use",
+              "context_retention"
+            ]
+          }
+        }
+      },
+      "creation_timestamp": 1764767954.6918414,
+      "rubrics": null,
+      "final_session_state": {}
+    }
+  ],
+  "creation_timestamp": 1764767954.6918437
+}
