@@ -1,6 +1,6 @@
-# Agent Profile: email_calendar_assistant
+# Agent Profile: workspace
 
-This report provides an analysis of the `email_calendar_assistant` agent based on the AI agent characterization framework.
+This report provides an analysis of the `workspace` agent based on the AI agent characterization framework.
 
 ## Autonomy (A)
 

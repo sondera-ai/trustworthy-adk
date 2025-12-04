@@ -1,7 +1,7 @@
-# Email Calendar Assistant - ADK Modernization Plan
+# Workspace Agent - ADK Modernization Plan
 
 ## Overview
-This document outlines the plan to modernize the email_calendar_assistant example based on the latest Google ADK documentation and best practices.
+This document outlines the plan to modernize the workspace example based on the latest Google ADK documentation and best practices.
 
 ## Current State Analysis
 - Uses basic `Agent` instantiation with function-based tools

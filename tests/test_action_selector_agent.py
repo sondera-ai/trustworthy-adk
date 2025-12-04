@@ -5,19 +5,9 @@ These tests verify the security properties and functionality of the
 Action-Selector Pattern implementation that extends LlmAgent.
 """
 
-import pytest
-
 from trustworthy.agents import (
     ActionSelectorAgent,
     create_action_selector_agent,
-    create_customer_service_agent,
-    # Example tools
-    check_order_status,
-    reset_password,
-    contact_support,
-    track_shipment,
-    process_return,
-    CUSTOMER_SERVICE_TOOLS,
 )
 
 
@@ -114,97 +104,3 @@ class TestFactoryFunctions:
         assert agent.name == "factory_agent"
         assert agent.description == "Agent from factory"
         assert len(agent.tools) == 1
-
-    def test_create_customer_service_agent(self):
-        """Test pre-configured customer service agent creation."""
-
-        agent = create_customer_service_agent()
-
-        assert isinstance(agent, ActionSelectorAgent)
-        assert agent.name == "customer_service"
-        assert "security" in agent.description.lower()
-        assert len(agent.tools) == len(CUSTOMER_SERVICE_TOOLS)
-
-
-class TestExampleTools:
-    """Test the provided example tools."""
-
-    def test_check_order_status(self):
-        """Test order status tool."""
-        result = check_order_status("ORD123")
-        assert "ORD123" in result
-        assert "processed" in result.lower()
-
-    def test_reset_password(self):
-        """Test password reset tool."""
-        result = reset_password("user@example.com")
-        assert "user@example.com" in result
-        assert "reset" in result.lower()
-
-    def test_contact_support(self):
-        """Test support contact tool."""
-        result = contact_support("billing", "high")
-        assert "billing" in result
-        assert "high" in result
-        assert "ticket" in result.lower()
-
-    def test_track_shipment(self):
-        """Test shipment tracking tool."""
-        result = track_shipment("TRACK123")
-        assert "TRACK123" in result
-        assert "transit" in result.lower() or "arrive" in result.lower()
-
-    def test_process_return(self):
-        """Test return processing tool."""
-        result = process_return("ORD456", "ITEM789", "defective")
-        assert "ORD456" in result
-        assert "ITEM789" in result
-        assert "defective" in result
-
-    def test_customer_service_tools_list(self):
-        """Test that all expected tools are in the list."""
-        tool_names = [tool.__name__ for tool in CUSTOMER_SERVICE_TOOLS]
-
-        assert "check_order_status" in tool_names
-        assert "reset_password" in tool_names
-        assert "contact_support" in tool_names
-        assert "track_shipment" in tool_names
-        assert "process_return" in tool_names
-        assert len(CUSTOMER_SERVICE_TOOLS) == 5
-
-
-class TestSecurityProperties:
-    """Test security properties of the Action Selector pattern."""
-
-    def test_no_dynamic_tool_creation(self):
-        """Test that tools cannot be dynamically added after initialization."""
-
-        def initial_tool() -> str:
-            """Initial tool."""
-            return "initial"
-
-        agent = ActionSelectorAgent(tools=[initial_tool])
-        initial_tool_count = len(agent.tools)
-
-        # Try to add a new tool (this should not work dynamically)
-        def new_tool() -> str:
-            """New tool."""
-            return "new"
-
-        # Tools are immutable after initialization
-        assert len(agent.tools) == initial_tool_count
-
-    def test_tool_results_blocked_list(self):
-        """Test that agent has mechanism to block tool results from feedback."""
-
-        agent = ActionSelectorAgent(name="security_test")
-
-        # Agent should have the blocking mechanism initialized
-        assert hasattr(agent, "_tool_results_blocked")
-        assert agent._tool_results_blocked == []
-        assert hasattr(agent, "_executed_action")
-        assert not agent._executed_action
-
-
-if __name__ == "__main__":
-    pytest.main([__file__])

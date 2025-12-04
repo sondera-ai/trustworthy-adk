@@ -1,0 +1,247 @@
+{
+  "eval_set_id": "eval_set",
+  "name": "eval_set",
+  "eval_cases": [
+    {
+      "eval_id": "da388736",
+      "conversation_scenario": {
+        "starting_prompt": "Can you check if I have any important emails from today?",
+        "conversation_plan": "First ask to check emails from today. When the agent provides a summary, ask for more details about any important email. Then ask to draft a reply to one of them. Finally, confirm if the draft looks good and ask to send it."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.481789
+    },
+    {
+      "eval_id": "cd9c8c3f",
+      "conversation_scenario": {
+        "starting_prompt": "I need to schedule a meeting with the team for next week.",
+        "conversation_plan": "Start by asking to schedule a team meeting. When asked for details, provide: Tuesday at 2pm, 1 hour duration, topic 'Q4 Planning'. Ask the agent to check for conflicts first. If there are conflicts, ask for alternative time slots. Once scheduled, ask to send invites to team@company.com."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.482316
+    },
+    {
+      "eval_id": "f0c61521",
+      "conversation_scenario": {
+        "starting_prompt": "My inbox is getting cluttered. Can you help me organize it?",
+        "conversation_plan": "Ask to help clean up the inbox. When the agent provides options, ask to first show unread emails older than a week. Then ask to delete promotional emails. After that, ask to archive emails that have been responded to. Finally, ask for a summary of the cleanup actions taken."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.482436
+    },
+    {
+      "eval_id": "d3686acb",
+      "conversation_scenario": {
+        "starting_prompt": "I need to find a good time for a client call this week.",
+        "conversation_plan": "Ask for available time slots this week for a client call. When provided with options, specify you prefer mornings. Ask about Thursday specifically. If Thursday morning is available, book a 45-minute slot. Then ask to draft an email to client@external.com with the meeting details."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.482541
+    },
+    {
+      "eval_id": "b309db68",
+      "conversation_scenario": {
+        "starting_prompt": "Did my boss send me anything urgent today?",
+        "conversation_plan": "Ask about urgent emails from the boss. When the agent searches, ask for the exact content of any urgent email. Request a draft response acknowledging receipt and providing an estimated completion time. Ask to mark it as high priority. Finally, ask to send the response."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.482644
+    },
+    {
+      "eval_id": "e1bdcce9",
+      "conversation_scenario": {
+        "starting_prompt": "What's on my calendar for the rest of the week?",
+        "conversation_plan": "Ask for a weekly calendar overview. When provided, ask for more details about Friday's schedule. Then ask if there are any scheduling conflicts. If there's free time on Friday afternoon, ask to block 2 hours for focused work. Finally, ask for a summary of the updated schedule."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.482745
+    },
+    {
+      "eval_id": "a932001f",
+      "conversation_scenario": {
+        "starting_prompt": "Can you help me with follow-up emails from last week's meetings?",
+        "conversation_plan": "Ask to identify emails that need follow-up from last week. When the agent lists them, ask to draft a follow-up for the most important one. Request to include action items discussed. Ask to schedule a reminder for next week if no response is received. Then ask to send the follow-up."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.48285
+    },
+    {
+      "eval_id": "8d34e980",
+      "conversation_scenario": {
+        "starting_prompt": "I have a conflict tomorrow at 10am. Can you help me reschedule?",
+        "conversation_plan": "Inform about the 10am conflict tomorrow. Ask to see what's scheduled at that time. Request to reschedule it to later in the week. When alternatives are provided, choose Thursday at 3pm. Ask to notify all attendees about the change with an apology for the inconvenience."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.48298
+    },
+    {
+      "eval_id": "bc046b2c",
+      "conversation_scenario": {
+        "starting_prompt": "Can you summarize the project discussion email thread?",
+        "conversation_plan": "Ask for a summary of the project discussion thread. When provided, ask about specific action items mentioned. Then ask who is responsible for each action item. Request to create calendar reminders for your action items. Finally, ask to draft a summary email to all participants."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.483106
+    },
+    {
+      "eval_id": "92be12d9",
+      "conversation_scenario": {
+        "starting_prompt": "I need to set up a weekly standup meeting starting next Monday.",
+        "conversation_plan": "Request to set up a weekly standup meeting. Specify: Every Monday at 9:30am, 30 minutes, starting next week. Ask to make it recurring for the next 3 months. Request to add the team distribution list. Then ask to send calendar invites with a brief agenda template."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.483231
+    },
+    {
+      "eval_id": "99c775ee",
+      "conversation_scenario": {
+        "starting_prompt": "I'm looking for an email about the budget proposal from last month.",
+        "conversation_plan": "Ask to search for budget proposal emails from last month. When results are shown, ask for the one from the CFO specifically. Request to see the full content including attachments mentioned. Ask to forward it to accounting@company.com with a note asking for review. Finally, create a calendar reminder to follow up in 3 days."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.483377
+    },
+    {
+      "eval_id": "ed46ac6c",
+      "conversation_scenario": {
+        "starting_prompt": "I'll be on vacation next week. Can you help me prepare?",
+        "conversation_plan": "Inform about vacation next week. Ask to check calendar for any important meetings. Request to draft decline messages for non-critical meetings. Ask to help write an out-of-office email message. Then ask to identify any urgent emails that need responses before leaving. Finally, ask to delegate or respond to critical items."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.483551
+    },
+    {
+      "eval_id": "8fa53344",
+      "conversation_scenario": {
+        "starting_prompt": "I have a board meeting tomorrow. Help me prepare.",
+        "conversation_plan": "Ask for help preparing for tomorrow's board meeting. Request to see the meeting details and attendees. Ask to search for any related emails or documents sent recently. Request a summary of discussion points from previous board meeting emails. Ask to create a prep time block 30 minutes before the meeting. Finally, draft a pre-meeting email to attendees."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.483698
+    },
+    {
+      "eval_id": "290c3fd0",
+      "conversation_scenario": {
+        "starting_prompt": "I often send similar update emails. Can you help me be more efficient?",
+        "conversation_plan": "Ask for help with repetitive update emails. When the agent responds, ask to analyze recent update emails for patterns. Request to draft a template for weekly status updates. Ask to test it by filling in this week's information. Then ask to schedule a recurring reminder every Friday to send updates."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.483886
+    },
+    {
+      "eval_id": "0f4d3f95",
+      "conversation_scenario": {
+        "starting_prompt": "My calendar feels too packed. Can you help optimize it?",
+        "conversation_plan": "Ask for help optimizing an overbooked calendar. Request to see this week's schedule with meeting durations. Ask to identify back-to-back meetings without breaks. Suggest adding 15-minute buffers between meetings. Request to find and consolidate similar meetings. Finally, ask to implement the suggested changes for next week."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.484072
+    },
+    {
+      "eval_id": "193be261",
+      "conversation_scenario": {
+        "starting_prompt": "Help me focus on important emails and ignore the noise.",
+        "conversation_plan": "Ask to help prioritize important emails. Request to identify frequent important senders. Ask to search for emails marked as urgent or high priority. Suggest creating filters or rules for different categories. Ask to move non-essential emails to separate folders. Finally, provide a summary of the new organization system."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.484279
+    },
+    {
+      "eval_id": "52ca8f79",
+      "conversation_scenario": {
+        "starting_prompt": "I just finished a client meeting and need to share notes.",
+        "conversation_plan": "Inform about just completing a client meeting. Provide key points: discussed new contract, timeline of 6 weeks, budget approved at $50k. Ask to draft meeting notes email. Request to include action items for both sides. Ask to schedule follow-up meeting in 2 weeks. Then send notes to all attendees and cc the project team."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.484483
+    },
+    {
+      "eval_id": "46780e51",
+      "conversation_scenario": {
+        "starting_prompt": "I have several project deadlines coming up. Help me stay on track.",
+        "conversation_plan": "Ask for help managing multiple deadlines. When prompted, mention 3 projects with deadlines next month. Ask to create calendar events for each deadline. Request to add reminder events one week before each deadline. Ask to draft status request emails to team members. Finally, create a daily check-in slot for deadline reviews."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.484681
+    },
+    {
+      "eval_id": "c12ec47d",
+      "conversation_scenario": {
+        "starting_prompt": "I'm getting too many newsletters and promotional emails.",
+        "conversation_plan": "Complain about too many promotional emails. Ask to identify all newsletter and promotional emails from the past month. Request to see which senders send most frequently. Ask to draft unsubscribe requests for the top 5 senders. Then ask to delete old promotional emails. Finally, suggest setting up filters to auto-delete future promotional emails."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.48488
+    },
+    {
+      "eval_id": "d8156a07",
+      "conversation_scenario": {
+        "starting_prompt": "I need to coordinate a meeting between 5 people across different time zones.",
+        "conversation_plan": "Ask to schedule a meeting with 5 people in different time zones. Specify: New York, London, Tokyo participants. Ask to find a time that works for all zones. When options are provided, choose the most reasonable one. Request to send invites with time zone conversions clearly noted. Ask to include dial-in information for remote participants. Finally, send a prep email a day before."
+      },
+      "session_input": {
+        "app_name": "hello_world",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764821244.485078
+    }
+  ],
+  "creation_timestamp": 1764820993.824838
+}

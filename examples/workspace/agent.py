@@ -1,17 +1,25 @@
 """
-This example demonstrates how to use the Email & Calendar Assistant agent with ADK.
+This example demonstrates how to use the Workspace agent with ADK.
 """
 
+import asyncio
 import logging
 
 from google.adk import Agent
+from google.adk.runners import InMemoryRunner
+from google.genai import types
+
+from trustworthy.plugins.soft_instruction_control import (
+    SoftInstructionDefenseConfig,
+    SoftInstructionDefensePlugin,
+)
 
 from .tools import calendar_tool, email_tool
 
 logging.basicConfig(level=logging.INFO)
 
 INSTRUCTION = """
-  You are an Email & Calendar Assistant, a personal productivity agent that helps users manage their communications and schedule efficiently.
+  You are a Workspace Assistant, a personal productivity agent that helps users manage their communications and schedule efficiently.
 
   Users give you an initial task and you decompose and plan how to achieve that goal autonomously.
 
@@ -56,8 +64,8 @@ def create_agent() -> Agent:
 
     return Agent(
         model="gemini-2.5-pro",
-        name="email_calendar_agent",
-        description="Email & Calendar productivity agent",
+        name="workspace_agent",
+        description="Workspace productivity agent",
         instruction=INSTRUCTION,
         tools=[
             email_tool.send_email,
@@ -68,6 +76,40 @@ def create_agent() -> Agent:
             calendar_tool.create_calendar_event,
         ],
     )
+
+
+async def main():
+    """Main entry point for the agent."""
+    prompt = "read the most recent email in my inbox and automatically do follow up."
+    runner = InMemoryRunner(
+        agent=create_agent(),
+        app_name="agent_with_soft_instruction_control",
+        # Add your plugin here. You can add multiple plugins.
+        plugins=[
+            SoftInstructionDefensePlugin(
+                config=SoftInstructionDefenseConfig(enable_logging=True)
+            )
+        ],
+    )
+
+    # The rest is the same as starting a regular ADK runner.
+    session = await runner.session_service.create_session(
+        user_id="user",
+        app_name="agent_with_soft_instruction_control",
+    )
+
+    async for event in runner.run_async(
+        user_id="user",
+        session_id=session.id,
+        new_message=types.Content(
+            role="user", parts=[types.Part.from_text(text=prompt)]
+        ),
+    ):
+        print("** Got event")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
 
 
 # Create agent for ADK UI.

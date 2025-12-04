@@ -10,19 +10,10 @@ import logging
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
+from google import genai
+from google.adk.agents.invocation_context import InvocationContext
 from google.adk.plugins import BasePlugin
-# Note: UserMessage and GoogleAI are placeholder classes that need to be implemented
-# For now we'll define them locally for the plugin to work
-
-
-# Placeholder classes until proper implementations are available
-class UserMessage:
-    """Placeholder for UserMessage class."""
-
-    def __init__(self, text: str = "", **kwargs):
-        self.text = text
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+from google.genai import types
 
 
 class GoogleAI:
@@ -50,7 +41,7 @@ class SoftInstructionDefenseConfig:
     max_iterations: int = 5
     enable_logging: bool = True
     halt_on_detection: bool = True
-    sanitization_model: str = "models/gemini-1.5-flash"
+    sanitization_model: str = "gemini-2.5-flash"
     detection_threshold: float = 0.7
 
     # Phrases used for de-escalation
@@ -79,7 +70,7 @@ class SoftInstructionDefensePlugin(BasePlugin):
         self.logger = (
             logging.getLogger(__name__) if self.config.enable_logging else None
         )
-        self._client: Optional[GoogleAI] = None
+        self._client: Optional[genai.Client] = None
         self._detection_stats = {
             "total_messages": 0,
             "detected_injections": 0,
@@ -88,10 +79,10 @@ class SoftInstructionDefensePlugin(BasePlugin):
         }
 
     @property
-    def client(self) -> GoogleAI:
+    def client(self) -> genai.Client:
         """Lazy initialize the Google AI client for sanitization."""
         if self._client is None:
-            self._client = GoogleAI()
+            self._client = genai.Client()
         return self._client
 
     def _analyze_with_llm(self, text: str) -> tuple[bool, str]:
@@ -234,19 +225,29 @@ Rewritten text:"""
 
         return current_text, False, total_iterations
 
-    async def on_user_message(self, message: UserMessage) -> Optional[UserMessage]:
+    async def on_user_message_callback(
+        self,
+        *,
+        invocation_context: InvocationContext,
+        user_message: types.Content,
+    ) -> Optional[types.Content]:
         """
         Intercept and sanitize user messages before they reach the agent.
 
         This is the main entry point for the defense mechanism.
+        This callback runs immediately after runner.run(), before any other processing.
         """
+        if self.logger:
+            self.logger.info(
+                "SoftInstructionDefensePlugin: on_user_message_callback called"
+            )
         self._detection_stats["total_messages"] += 1
 
-        # Extract text content from the message
-        original_content = message.text if hasattr(message, "text") else str(message)
+        # Extract text content from the message parts
+        original_content = self._extract_text_from_content(user_message)
 
         if self.logger:
-            self.logger.debug(f"Processing user message: {original_content[:100]}...")
+            self.logger.info(f"Processing user message: {original_content[:100]}...")
 
         # Apply iterative sanitization
         sanitized_content, was_halted, iterations = self._iterative_sanitization(
@@ -260,26 +261,41 @@ Rewritten text:"""
 
         if was_halted:
             self._detection_stats["halted_messages"] += 1
-            if self.config.halt_on_detection:
-                # Return None to stop processing
-                if self.logger:
-                    self.logger.error(
-                        "Message processing halted due to security concerns"
-                    )
-                return None
+            if self.logger:
+                self.logger.error("Message processing halted due to security concerns")
+            # Return the sanitized content with halt message
+            # This replaces the original message with a blocked message
+            return types.Content(
+                role=user_message.role,
+                parts=[types.Part.from_text(text=sanitized_content)],
+            )
 
         # Create modified message if content was changed
         if sanitized_content != original_content:
             if self.logger:
                 self.logger.info(f"Message sanitized after {iterations} iteration(s)")
 
-            # Create a new UserMessage with sanitized content
-            # Note: This is a simplified approach - in production you'd preserve other message attributes
-            modified_message = UserMessage(text=sanitized_content)
-            return modified_message
+            # Create a new Content object with sanitized text
+            # Preserve the original role and other attributes
+            modified_content = types.Content(
+                role=user_message.role,
+                parts=[types.Part.from_text(text=sanitized_content)],
+            )
+            return modified_content
 
-        # Return original message if no changes needed
-        return message
+        # Return None to keep original message unchanged
+        return None
+
+    def _extract_text_from_content(self, content: types.Content) -> str:
+        """
+        Extract text from a types.Content object by concatenating all text parts.
+        """
+        text_parts = []
+        if content.parts:
+            for part in content.parts:
+                if hasattr(part, "text") and part.text:
+                    text_parts.append(part.text)
+        return " ".join(text_parts) if text_parts else ""
 
     def get_statistics(self) -> Dict[str, Any]:
         """Get plugin statistics for monitoring."""
@@ -304,6 +320,11 @@ Rewritten text:"""
                 else 0
             ),
         }
+
+    async def after_run_callback(
+        self, *, invocation_context: InvocationContext
+    ) -> Optional[None]:
+        print(self.get_statistics())
 
     def reset_statistics(self):
         """Reset detection statistics."""
