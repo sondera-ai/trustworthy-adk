@@ -1,3 +1,11 @@
+"""
+Human-in-the-Loop (HITL) Tool Plugin for ADK
+
+This plugin implements a Human-in-the-Loop pattern that requires human approval
+before executing sensitive or high-risk tools. It helps prevent unauthorized
+actions by pausing execution and requesting user confirmation.
+"""
+
 from typing import Any, Dict, List, Optional
 
 from google.adk.plugins import BasePlugin
@@ -6,6 +14,28 @@ from google.adk.types import Content
 
 
 class HITLToolPlugin(BasePlugin):
+    """
+    Human-in-the-Loop Tool Plugin
+    
+    This plugin intercepts tool calls for specified sensitive tools and requires
+    human approval before allowing execution. It provides an additional security
+    layer for high-risk operations.
+    
+    Example:
+        ```python
+        # Create plugin that requires approval for sensitive tools
+        hitl_plugin = HITLToolPlugin(
+            sensitive_tools=["delete_user", "transfer_funds", "send_email"]
+        )
+        
+        # Add to agent
+        agent = LlmAgent(
+            model="gemini-2.5-flash",
+            tools=[delete_user, transfer_funds, send_email],
+            plugins=[hitl_plugin]
+        )
+        ```
+    """
     def __init__(self, sensitive_tools: List[str]):
         """
         Args:

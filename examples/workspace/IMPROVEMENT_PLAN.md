@@ -6,7 +6,7 @@ This document outlines the plan to modernize the workspace example based on the 
 ## Current State Analysis
 - Uses basic `Agent` instantiation with function-based tools
 - Employs `gemini-2.5-flash` model
-- Integrates `SonderaHarnessPlugin` for policy enforcement
+- Integrates security plugins for policy enforcement
 - Creates new runner/session for each scenario
 - Limited error handling and validation
 
@@ -47,7 +47,7 @@ This document outlines the plan to modernize the workspace example based on the 
 ### 3. Plugin Integration Updates
 
 #### 3.1 Modern Plugin Patterns
-- **Current**: Basic `SonderaHarnessPlugin` integration (`agent.py:91-98`)
+- **Current**: Basic security plugin integration (`agent.py:91-98`)
 - **Target**: Enhanced `BasePlugin` with comprehensive callbacks
 - **Benefits**: Better monitoring, error recovery, telemetry
 - **Implementation**:

@@ -1,6 +1,10 @@
 from google.genai import types
+from google import genai
 from loguru import logger
-from sondera_api.world.inference import MODEL, client
+
+# Initialize the Google AI client
+client = genai.Client()
+MODEL = "gemini-2.5-flash"
 
 
 def ask_user(question: str) -> str:

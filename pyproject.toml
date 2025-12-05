@@ -1,9 +1,37 @@
 [project]
 name = "trustworthy-adk"
 version = "0.1.0"
-description = "Add your description here"
+description = "Security-focused plugins and tools for building trustworthy AI agents with Google ADK"
 readme = "README.md"
 requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "Trustworthy ADK Contributors"},
+]
+maintainers = [
+    {name = "Trustworthy ADK Contributors"},
+]
+keywords = [
+    "ai",
+    "agents", 
+    "security",
+    "prompt-injection",
+    "trustworthy-ai",
+    "google-adk",
+    "llm-security"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 dependencies = [
     "click>=8.3.1",
     "google-adk[eval]>=1.19.0",
