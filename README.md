@@ -8,7 +8,7 @@ A comprehensive toolkit for building secure, trustworthy AI agents using Google'
 ## 🎯 Overview
 
 This material supports the talk first presented at [2025 BSides Philadelphia](https://bsidesphilly.org/):
-**"Your AI Agent Just Got Pwned: A Security Engineer's Guide to Building Trustworthy Autonomous Systems"**.
+**"Your AI Agent Just Got Pwned: A Security Engineer's Guide to Building Trustworthy Autonomous Systems"**. The slides are available [here](docs/2025-12%20-%20Your%20AI%20Agent%20Just%20Got%20Pwned.pdf).
 
 The toolkit implements proven security patterns and defensive mechanisms to protect AI agents from:
 - Prompt injection attacks
